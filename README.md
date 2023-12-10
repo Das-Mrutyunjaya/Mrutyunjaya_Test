@@ -1,2 +1,2 @@
 # Mrutyunjaya_Test
-Java Automation API/UI framework Design
+Java Automation API & UI framework Design
