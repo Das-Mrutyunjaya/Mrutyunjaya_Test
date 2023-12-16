@@ -58,8 +58,6 @@ public class LoginTester extends BaseTester {
                 case "firefox":
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("-private");
-//                    firefoxOptions.addArguments("-headless");
-
                     driver = new FirefoxDriver(firefoxOptions);
                     driver.manage().window().maximize();
                     break;
@@ -76,24 +74,6 @@ public class LoginTester extends BaseTester {
                     driver = new ChromeDriver(service, options);
                     break;
             }
-//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-//            WebDriverWait await = new WebDriverWait(driver, Duration.ofMillis(10000));
-//            await.until(ExpectedConditions.visibilityOfElementLocated(By.id("")));
-//
-//
-//            WebDriverWait wait = (WebDriverWait) new FluentWait(driver);
-//            wait.ignoring(NoSuchElementException.class);
-//            wait.pollingEvery(Duration.ofMillis(5000));
-//            wait.withTimeout(Duration.ofMillis(5000));
-//
-//            Actions act = new Actions(driver);
-//            WebElement x = null,y = null;
-//            act.clickAndHold(x).moveToElement(y).release().build().perform();
-//
-//
-//
-//            driver.get("https://flipkart.com/");
             log2TestRunner("Browser opened Successfully");
         } catch (Exception e) {
             e.printStackTrace();

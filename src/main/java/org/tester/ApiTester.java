@@ -64,7 +64,7 @@ public class ApiTester extends BaseTester {
         driver.findElement(By.id("search-input")).sendKeys("port");
         driver.findElement(By.id("search-button")).click();
         List<WebElement> res = driver.findElements(By.cssSelector("#search-results"));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         Assert.assertEquals("Port Royal", res.get(0).getText().trim());
     }
 }
