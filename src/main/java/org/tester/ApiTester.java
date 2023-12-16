@@ -10,8 +10,12 @@ import org.utils.jsonreader;
 import pojo.petStore.petStore;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import static org.utils.jsonreader.getValueFromEnvParams;
 
 public class ApiTester extends BaseTester {
     public static String api_endpoint;
@@ -34,8 +38,6 @@ public class ApiTester extends BaseTester {
             petstore_request.setShipDate(datalist.get("shipDate"));
             petstore_request.setStatus(datalist.get("status"));
             RestAssured.baseURI = "https://petstore.swagger.io";
-
-
             RequestSpecification httpRequest = RestAssured.given();
             httpRequest.header("Content-Type", "application/json");
             httpRequest.body(petstore_request);
@@ -54,17 +56,28 @@ public class ApiTester extends BaseTester {
         try {
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
             Assert.fail("validate the Pet Store Order Detail failed");
         }
     }
 
-    public void exam() throws InterruptedException {
-        driver.get("https://codility-frontend-prod.s3.amazonaws.com/media/task_static/qa_search/6f03f4361b080eeb747193aadd94cd2b/static/attachments/reference_page.html");
-        driver.findElement(By.id("search-input")).sendKeys("port");
-        driver.findElement(By.id("search-button")).click();
-        List<WebElement> res = driver.findElements(By.cssSelector("#search-results"));
-        Thread.sleep(2000);
-        Assert.assertEquals("Port Royal", res.get(0).getText().trim());
+    public void exam() {
+        try {
+//            driver.get(getValueFromEnvParams("data_UI/url2"));
+//            driver.findElement(By.id("search-input")).sendKeys("port");
+//            driver.findElement(By.id("search-button")).click();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+            List<WebElement> res = driver.findElements(By.cssSelector("#search-results"));
+            WebElement res1 = driver.findElement(By.cssSelector("#search-results"));
+
+//            Thread.sleep(2000);
+            WebElement z = res1.findElement(By.id(""));
+            List<WebElement> zx = res1.findElements(By.id(""));
+            Assert.assertEquals("Port Royal", res.get(2).getText().trim());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail("exam method failed\n" + e.getMessage() + "\nnew option\n" + e.getCause() + "\nnew option\n" + Arrays.stream(e.getStackTrace()).toArray());
+        }
+
     }
 }

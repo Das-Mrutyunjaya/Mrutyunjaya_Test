@@ -1,0 +1,14 @@
+{
+  "Username": {
+    "Method": "css",
+    "Locator": "[name='username']"
+  },
+  "Password": {
+    "Method": "name",
+    "Locator": "password"
+  },
+  "Login_Button": {
+    "Method": "class",
+    "Locator": "orangehrm-login-button"
+  }
+}

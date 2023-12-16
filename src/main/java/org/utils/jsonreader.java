@@ -8,11 +8,13 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class jsonreader {
-    public static Map<String, Object> jsonFileReader(String filepath) throws IOException {
-        Map<String, Object> map = null;
+    public static Map map = null;
+
+    public static Map elementLocatorReader(String filepath) throws IOException {
+
         try {
-        String jsonString = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/"+filepath)));
-        ObjectMapper mapper = new ObjectMapper();
+            String jsonString = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/" + filepath)));
+            ObjectMapper mapper = new ObjectMapper();
             map = mapper.readValue(jsonString, Map.class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -20,9 +22,21 @@ public class jsonreader {
         return map;
     }
 
+    public static Map elementLocatorReader(String filepath, String locator) throws IOException {
+        try {
+            String jsonString = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/" + filepath)));
+            ObjectMapper mapper = new ObjectMapper();
+            map = mapper.readValue(jsonString, Map.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert map != null;
+        return (Map) map.get(locator);
+    }
 
-    public static Map<String, Object> jsonStringReader(String JsonString) throws IOException {
-        Map<String, Object> map = null;
+
+    public static Map<String, Object> jsonStringToMap(String JsonString) throws IOException {
+        Map map = null;
         try {
             ObjectMapper mapper = new ObjectMapper();
             map = mapper.readValue(JsonString, Map.class);
@@ -35,15 +49,16 @@ public class jsonreader {
     public static String getValueFromEnvParams(String path) throws IOException {
         String val = null;
         try {
-            Map<String, Object> envmap = jsonreader.jsonFileReader("env.json");
+            Map envmap = jsonreader.elementLocatorReader("env.json");
             String[] route = path.split("/");
-            Map<String, Object> temp = null;
+            Map temp = null;
 
             for (int i = 0; i < route.length; i++) {
                 if (i < route.length - 1) {
-                    temp = (Map<String, Object>) envmap.get(route[i]);
+                    temp = (Map) envmap.get(route[i]);
                 }
                 if (i == route.length - 1) {
+                    assert temp != null;
                     val = temp.get(route[i]).toString();
                 }
             }

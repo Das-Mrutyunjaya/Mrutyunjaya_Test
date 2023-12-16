@@ -21,7 +21,7 @@ public class apiStepDefinition {
     }
 
     @And("user check the inventory")
-    public void userCheckTheInventory() throws InterruptedException {
+    public void userCheckTheInventory() {
         apiTester.exam();
     }
 }

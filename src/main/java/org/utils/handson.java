@@ -1,19 +1,27 @@
 package org.utils;
 
+import org.openqa.selenium.By;
+
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Locale;
+
+import static org.utils.jsonreader.getValueFromEnvParams;
+import static org.utils.jsonreader.elementLocatorReader;
 
 
 public class handson {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        System.out.println(getValueFromEnvParams("Username"));
 
-        String xyz= "Today is Monday";
-
-        System.out.println(String.valueOf(xyz.charAt(4)));
-//        countofOccurance("Today is Monday");
-        int[] arr = {1,4,7,8,90,4,3,5,34};
-        sorting_array(arr);
+        elementLocatorReader("src/main/resources/object_repository/hrmLogin.json");
+        By userinput = By.cssSelector("");
+//        String xyz= "Today is Monday";
+//
+//        System.out.println(String.valueOf(xyz.charAt(4)));
+////        countofOccurance("Today is Monday");
+//        int[] arr = {1,4,7,8,90,4,3,5,34};
+//        sorting_array(arr);
     }
 
     private static void sorting_array(int[] arr) {

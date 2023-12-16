@@ -1,17 +1,16 @@
 Feature: Login to Practice website
 
-
+  @juju
   Scenario Outline: User login to to the application
     Given User open the "<browser>" browser
     Then User put his "<username>" and "<password>"
     Then user click on login button
     Examples:
       | browser | username | password |
-      | chrome  | juju     | pwd      |
-#      | firefox | juju     | pwd      |
-      | edge    | juju     | pwd      |
+      | chrome  | Admin    | admin123 |
+      | edge    | Admin    | admin123 |
 
-  @juju
+
   Scenario Outline: User Order pets and validate the order details from a petStore
 #    Given User set up the request body using below data
 #      | id   | petId | quantity | status | complete | shipDate             |

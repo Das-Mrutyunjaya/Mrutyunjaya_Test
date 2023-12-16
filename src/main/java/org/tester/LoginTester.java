@@ -11,21 +11,17 @@ import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.Assert;
 
-import java.time.Clock;
-import java.time.Duration;
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+
+import static org.utils.driverUtility.getElement;
+import static org.utils.jsonreader.getValueFromEnvParams;
 
 public class LoginTester extends BaseTester {
     public static Consumer<String> testRunnerLogger;
+    public static String page = "hrmLogin";
 
     private void log2TestRunner(String msg) {
         testRunnerLogger.accept(msg);
@@ -33,7 +29,11 @@ public class LoginTester extends BaseTester {
 
     public void logindetailinsert(String username, String password) {
         try {
-            log2TestRunner("user put his user name and password correctly");
+            driver.get(getValueFromEnvParams("data_UI/url"));
+            getElement(driver, page, "Username").sendKeys(username);
+            getElement(driver, page, "Password").sendKeys(password);
+            log2TestRunner("user put his " + username + " and " + password + " correctly");
+
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("login detail insert method failed");
@@ -42,9 +42,9 @@ public class LoginTester extends BaseTester {
 
     public void click() {
         try {
-            log2TestRunner("login click method failed");
-            Assert.fail("login click method failed");
-            driver.quit();
+            getElement(driver, page, "Login_Button").click();
+            log2TestRunner("User click on login button");
+            Thread.sleep(2000);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("login click method failed");
