@@ -38,4 +38,9 @@ public class apiStepDefinition {
     public void userCheckTheInventory() {
         apiTester.exam();
     }
+
+    @Then("User Delete the Order detail with below data")
+    public void userDeleteTheOrderDetailWithBelowData(DataTable dataTable) {
+        apiTester.userDeleteTheOrder(dataTable.asMaps().get(0));
+    }
 }

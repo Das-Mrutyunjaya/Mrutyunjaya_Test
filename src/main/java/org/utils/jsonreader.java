@@ -10,7 +10,7 @@ import java.util.Map;
 public class jsonreader {
     public static Map map = null;
 
-    public static Map elementLocatorReader(String filepath) throws IOException {
+    public static Map elementLocatorReader(String filepath)  {
 
         try {
             String jsonString = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/" + filepath)));
@@ -22,7 +22,7 @@ public class jsonreader {
         return map;
     }
 
-    public static Map elementLocatorReader(String filepath, String locator) throws IOException {
+    public static Map elementLocatorReader(String filepath, String locator)  {
         try {
             String jsonString = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/" + filepath)));
             ObjectMapper mapper = new ObjectMapper();
@@ -35,7 +35,7 @@ public class jsonreader {
     }
 
 
-    public static Map<String, Object> jsonStringToMap(String JsonString) throws IOException {
+    public static Map jsonStringToMap(String JsonString)  {
         Map map = null;
         try {
             ObjectMapper mapper = new ObjectMapper();

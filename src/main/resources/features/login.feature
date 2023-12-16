@@ -12,14 +12,20 @@ Feature: Login to Practice website
 
   @practice
   Scenario Outline: User Order pets and validate the order details from a petStore
-    Given User set up the request body using below data
+    Given User Delete the Order detail with below data
+      | id   |
+      | <id> |
+    Then User set up the request body using below data
       | id   | petId | quantity | status | complete | shipDate             |
       | <id> | 98765 | 2        | placed | true     | 2023-10-28T11:15:00Z |
-    Then User validate the order detail with below data
+    And User validate the order detail with below data
       | id   | petId | quantity | status | complete | shipDate             |
       | <id> | 98765 | 2        | placed | true     | 2023-10-28T11:15:00Z |
+
     Examples:
       | id |
       | 2  |
+      | 3  |
+      | 4  |
 
 
