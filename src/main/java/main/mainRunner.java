@@ -5,12 +5,10 @@ import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.utils.jsonreader;
-
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+
 
 import static org.utils.jsonreader.getValueFromEnvParams;
 
@@ -20,7 +18,7 @@ public class mainRunner {
 
     public static void main(String[] args) {
         String[] env_args = envSetup();
-        logger.info("Cucumber RunTime Arguments are :" + env_args);
+        logger.info("Cucumber RunTime Arguments are :" + Arrays.toString(env_args));
         Main.main(env_args);
     }
 
