@@ -59,6 +59,7 @@ public class LoginTester extends BaseTester {
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("-private");
 //                    firefoxOptions.addArguments("-headless");
+
                     driver = new FirefoxDriver(firefoxOptions);
                     driver.manage().window().maximize();
                     break;

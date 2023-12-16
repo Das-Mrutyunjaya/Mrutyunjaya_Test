@@ -59,11 +59,12 @@ public class ApiTester extends BaseTester {
         }
     }
 
-    public void exam() {
+    public void exam() throws InterruptedException {
         driver.get("https://codility-frontend-prod.s3.amazonaws.com/media/task_static/qa_search/6f03f4361b080eeb747193aadd94cd2b/static/attachments/reference_page.html");
         driver.findElement(By.id("search-input")).sendKeys("port");
         driver.findElement(By.id("search-button")).click();
-        List<WebElement> res = driver.findElements(By.cssSelector("#search-results li"));
-        Assert.assertTrue(res.get(0).getText().equals("Port Royal"));
+        List<WebElement> res = driver.findElements(By.cssSelector("#search-results"));
+        Thread.sleep(5000);
+        Assert.assertEquals("Port Royal", res.get(0).getText().trim());
     }
 }
