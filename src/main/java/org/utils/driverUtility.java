@@ -3,13 +3,9 @@ package org.utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-import static org.tester.BaseTester.driver;
 
 
 public class driverUtility {
