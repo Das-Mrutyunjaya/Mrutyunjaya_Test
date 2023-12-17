@@ -17,6 +17,7 @@ public class apiStepDefinition {
     @BeforeStep
     public void beforestep(Scenario lscenario) {
         scenario = lscenario;
+        System.out.println("Scenario Name: "+ scenario.getName());
     }
 
     private static void cukelogger(String msg) {

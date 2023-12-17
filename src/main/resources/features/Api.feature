@@ -19,7 +19,7 @@ Feature: Book & PetStore CRUD operation Practice API
       | 5  | 7      |
 
 
-  @practice1
+  @practice
   Scenario Outline: User Order pets and validate the order details from a petStore
     Given User Delete the Order detail with below data
       | id   |

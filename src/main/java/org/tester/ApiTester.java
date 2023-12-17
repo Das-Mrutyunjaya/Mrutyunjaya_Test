@@ -1,22 +1,18 @@
 package org.tester;
 
 
+import io.cucumber.java.Scenario;
 import io.restassured.RestAssured;
-import io.restassured.config.HttpClientConfig;
-import io.restassured.config.RestAssuredConfig;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.http.client.config.RequestConfig;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.utils.jsonreader;
 import pojo.books.Books;
 import pojo.petStore.petStore;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -36,33 +32,34 @@ public class ApiTester extends BaseTester {
     }
 
     public ApiTester() {
-        try {
-            // Set request timeout in millisecond
-            RestAssured.config = RestAssured.config().httpClient(
-                    RestAssured.config().getHttpClientConfig().setParam("http.connection.timeout", 5000)
-            );
-            // Set socket timeout in millisecond
-            RestAssured.config = RestAssured.config().httpClient(
-                    RestAssured.config().getHttpClientConfig().setParam("http.socket.timeout", 5000)
-            );
-//            if (scenario.getName().contains("pets")) {
-//                api_endpoint = getValueFromEnvParams("petStore_Api/endpoint");
-//                api_DeleteEndpoint = getValueFromEnvParams("petStore_Api/deleteEndpoint");
-//                api_Uri = getValueFromEnvParams("petStore_Api/url");
-//            } else {
+        // Set request timeout in millisecond
+        RestAssured.config = RestAssured.config().httpClient(
+                RestAssured.config().getHttpClientConfig().setParam("http.connection.timeout", 5000)
+        );
+        // Set socket timeout in millisecond
+        RestAssured.config = RestAssured.config().httpClient(
+                RestAssured.config().getHttpClientConfig().setParam("http.socket.timeout", 5000)
+        );
+
+    }
+
+    public void ApiDetailSetUp() throws IOException {
+        if (scenario.getName().contains("pets")) {
+            api_endpoint = getValueFromEnvParams("petStore_Api/endpoint");
+            api_DeleteEndpoint = getValueFromEnvParams("petStore_Api/deleteEndpoint");
+            api_Uri = getValueFromEnvParams("petStore_Api/url");
+        } else {
             api_endpoint = getValueFromEnvParams("bookStore_Api/endpoint");
             api_DeleteEndpoint = getValueFromEnvParams("bookStore_Api/deleteEndpoint");
             api_Uri = getValueFromEnvParams("bookStore_Api/url");
-//            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
     public void userSetupPetstoreOrder(Map<String, String> datalist) {
         petStore petstore_request = new petStore();
         try {
+            response = null;
+            ApiDetailSetUp();
             petstore_request.setId(Integer.parseInt(datalist.get("id")));
             petstore_request.setPetId(Integer.parseInt(datalist.get("petId")));
             petstore_request.setComplete(Boolean.parseBoolean(datalist.get("complete")));
@@ -114,6 +111,7 @@ public class ApiTester extends BaseTester {
 
     public void userDeleteTheOrder(Map<String, String> datalist) {
         try {
+            ApiDetailSetUp();
             RestAssured.baseURI = api_Uri;
             RequestSpecification httpRequest = RestAssured.given();
             httpRequest.config(RestAssured.config);
@@ -126,6 +124,7 @@ public class ApiTester extends BaseTester {
 
     public void userCreateTheBookRequestBodyUsingBelowData(Map<String, String> datalist) {
         try {
+            ApiDetailSetUp();
             Books book = new Books();
             book.setId(Integer.parseInt(datalist.get("id")));
             book.setDescription(datalist.get("description"));
@@ -174,6 +173,7 @@ public class ApiTester extends BaseTester {
 
     public void userUpdateTheBookWithBelowDetails(Map<String, String> datalist) {
         try {
+            ApiDetailSetUp();
             Books book = new Books();
             book.setId(Integer.parseInt(datalist.get("new_Id")));
             book.setDescription(datalist.get("description"));
@@ -199,6 +199,7 @@ public class ApiTester extends BaseTester {
 
     public void userGetTheBook(String bookId, String Method) {
         try {
+            ApiDetailSetUp();
             RestAssured.baseURI = api_Uri;
             if (Method.equalsIgnoreCase("get")) {
                 response = RestAssured.get(api_endpoint + "/" + bookId);
