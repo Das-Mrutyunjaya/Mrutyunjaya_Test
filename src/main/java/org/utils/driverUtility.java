@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 import static org.tester.BaseTester.driver;
-import static org.utils.jsonreader.elementLocatorReader;
+
 
 public  class driverUtility {
     static WebElement webElement;
     static List<WebElement> webElements;
-    static Duration time= Duration.ofSeconds(60);
+    static Duration time= Duration.ofSeconds(10);
 
     public driverUtility() {
 

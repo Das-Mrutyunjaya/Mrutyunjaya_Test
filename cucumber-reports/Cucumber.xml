@@ -1,55 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="38.175" tests="6" skipped="0" failures="0" errors="0">
-<testcase classname="Book &amp; PetStore CRUD operation Practice API" name="User CRUD Operation on Books - Example #1.1" time="7.046">
-<system-out><![CDATA[
-Given User Create the book request body using below data....................passed
-And User validate the Book creation detail with below data..................passed
-Then user update the Book with below details................................passed
-Then User "get" the book using "2"..........................................passed
-Then User "delete" the book using "2".......................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Book &amp; PetStore CRUD operation Practice API" name="User CRUD Operation on Books - Example #1.2" time="2.408">
-<system-out><![CDATA[
-Given User Create the book request body using below data....................passed
-And User validate the Book creation detail with below data..................passed
-Then user update the Book with below details................................passed
-Then User "get" the book using "5"..........................................passed
-Then User "delete" the book using "5".......................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login to OrangeHRM Practice website" name="User login to to the OrangeHRM application - Example #1.1" time="12.875">
+<testsuite name="Cucumber" time="30.708" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login to OrangeHRM Practice website" name="User Adding Employee to the database" time="30.49">
 <system-out><![CDATA[
 Given User open the "chrome" browser........................................passed
 Then User put his "Admin" and "admin123"....................................passed
 Then user click on login button.............................................passed
 Then user validate the page-title "OrangeHRM"...............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login to OrangeHRM Practice website" name="User login to to the OrangeHRM application - Example #1.2" time="9.872">
-<system-out><![CDATA[
-Given User open the "edge" browser..........................................passed
-Then User put his "Admin" and "admin123"....................................passed
-Then user click on login button.............................................passed
-Then user validate the page-title "OrangeHRM"...............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login to OrangeHRM Practice website" name="User CRUD Operation on Books - Example #1.1" time="3.307">
-<system-out><![CDATA[
-Given User Create the book request body using below data....................passed
-And User validate the Book creation detail with below data..................passed
-Then user update the Book with below details................................passed
-Then User "get" the book using "2"..........................................passed
-Then User "delete" the book using "2".......................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login to OrangeHRM Practice website" name="User CRUD Operation on Books - Example #1.2" time="2.444">
-<system-out><![CDATA[
-Given User Create the book request body using below data....................passed
-And User validate the Book creation detail with below data..................passed
-Then user update the Book with below details................................passed
-Then User "get" the book using "5"..........................................passed
-Then User "delete" the book using "5".......................................passed
+Given User click on "PIM" Module............................................passed
+And user click "Add Employee" on Top Bar Menu...............................passed
+And User put below employee details and add the new employee................passed
+And user verify the success message.........................................passed
+Then user click "Employee List" on Top Bar Menu.............................passed
+And User Search for created employee........................................passed
+And user click on "Search" button...........................................passed
+Then User Finds the searched employee in record table & click on checkbox and Trash button.passed
+Then user click on "Yes, Delete"............................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

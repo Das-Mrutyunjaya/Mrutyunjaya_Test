@@ -27,6 +27,7 @@ public class cucuHooks extends BaseTester {
             if (driver != null) {
                 final byte[] source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(source, "image/png", "Cucumber7x" + pixcount);
+                pixcount++;
             }
         } catch (Exception e) {
             e.printStackTrace();

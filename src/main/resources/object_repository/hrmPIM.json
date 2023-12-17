@@ -1,0 +1,66 @@
+{
+  "SideNavItems": {
+    "Method": "css",
+    "Locator": ".oxd-main-menu-item--name"
+  },
+  "TopBarItems": {
+    "Method": "css",
+    "Locator": ".oxd-topbar-body-nav-tab-item"
+  },
+  "EmployeeDetailForm": {
+    "Method": "css",
+    "Locator": "[class*='oxd-input oxd-input--active']"
+  },
+  "EmployeeCreateLoginSwitch": {
+    "Method": "css",
+    "Locator": "[class*='oxd-switch-input oxd-switch-input--active']"
+  },
+  "EmployeeImagePlusButton": {
+    "Method": "class",
+    "Locator": "employee-image-action"
+  },
+  "EmployeeStatusRadioButton": {
+    "Method": "css",
+    "Locator": "[class*='oxd-radio-input oxd-radio-input--active']"
+  },
+  "EmployeeSaveButton": {
+    "Method": "css",
+    "Locator": "[type='submit']"
+  },
+  "EmployeeSearchButton": {
+    "Method": "css",
+    "Locator": "[type='submit']"
+  },
+  "SuccessToastMessage": {
+    "Method": "css",
+    "Locator": "[class ='oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text']"
+  },
+  "SuccessToastTitle": {
+    "Method": "css",
+    "Locator": "[class ='oxd-text oxd-text--p oxd-text--toast-title oxd-toast-content-text']"
+  },
+  "SearchByEmployeeName": {
+    "Method": "css",
+    "Locator": "[placeholder='Type for hints...']"
+  },
+  "SearchTableRows": {
+    "Method": "css",
+    "Locator": ".oxd-table-card .oxd-table-row"
+  },
+  "SearchTableColumn": {
+    "Method": "css",
+    "Locator": ".oxd-table-cell"
+  },
+  "SearchTableColumnCheckBox": {
+    "Method": "css",
+    "Locator": ".oxd-table-card-cell-checkbox"
+  },
+  "SearchTableColumnTrashBox": {
+    "Method": "css",
+    "Locator": ".oxd-table-cell-actions button [class='oxd-icon bi-trash']"
+  },
+  "PopUpDeleteYesConfirmation": {
+    "Method": "css",
+    "Locator": "[class='oxd-icon bi-trash oxd-button-icon']"
+  }
+}
