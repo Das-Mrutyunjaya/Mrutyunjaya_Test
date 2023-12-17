@@ -12,17 +12,12 @@ import java.util.Map;
 import static org.tester.BaseTester.driver;
 
 
-public  class driverUtility {
+public class driverUtility {
     static WebElement webElement;
     static List<WebElement> webElements;
-    static Duration time= Duration.ofSeconds(10);
 
-    public driverUtility() {
+    public static WebElement getElement(WebDriver driver, String page, String locatorName) {
 
-    }
-
-    public static WebElement getElement(WebDriver driver, String page, String locatorName) throws IOException {
-        driver.manage().timeouts().implicitlyWait(time);
         String path = "src/main/resources/object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
@@ -30,8 +25,8 @@ public  class driverUtility {
         return webElement = driver.findElement(byMethodSelection(Method, Locator));
     }
 
-    public static List<WebElement> getElements(WebDriver driver, String page, String locatorName) throws IOException {
-        driver.manage().timeouts().implicitlyWait(time);
+    public static List<WebElement> getElements(WebDriver driver, String page, String locatorName) {
+
         String path = "src/main/resources/object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
@@ -39,8 +34,8 @@ public  class driverUtility {
         return webElements = driver.findElements(byMethodSelection(Method, Locator));
     }
 
-    public static WebElement getElement(WebElement webelement, String page, String locatorName) throws IOException {
-        driver.manage().timeouts().implicitlyWait(time);
+    public static WebElement getElement(WebElement webelement, String page, String locatorName) {
+
         String path = "src/main/resources/object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
@@ -48,8 +43,8 @@ public  class driverUtility {
         return webElement = webelement.findElement(byMethodSelection(Method, Locator));
     }
 
-    public static List<WebElement> getElements(WebElement webelement, String page, String locatorName) throws IOException {
-        driver.manage().timeouts().implicitlyWait(time);
+    public static List<WebElement> getElements(WebElement webelement, String page, String locatorName) {
+
         String path = "src/main/resources/object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");

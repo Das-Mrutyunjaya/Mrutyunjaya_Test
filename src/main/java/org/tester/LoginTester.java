@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 
+import java.time.Duration;
 import java.util.function.Consumer;
 
 import static org.utils.driverUtility.getElement;
@@ -71,6 +72,7 @@ public class LoginTester extends BaseTester {
                     driver = new ChromeDriver(service, options);
                     break;
             }
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             log2TestRunner("Browser opened Successfully");
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,10 +81,10 @@ public class LoginTester extends BaseTester {
     }
 
     public void pageValidate(String title) {
-        try{
-            log2TestRunner("PageTitle Expect: "+title+" Actual: "+driver.getTitle());
-            Assert.assertEquals("PAge title mismatch",title,driver.getTitle());
-        }catch (Exception e){
+        try {
+            log2TestRunner("PageTitle Expect: " + title + " Actual: " + driver.getTitle());
+            Assert.assertEquals("PAge title mismatch", title, driver.getTitle());
+        } catch (Exception e) {
             e.printStackTrace();
             Assert.fail();
         }
