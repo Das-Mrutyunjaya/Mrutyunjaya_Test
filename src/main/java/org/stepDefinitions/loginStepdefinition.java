@@ -35,4 +35,10 @@ public class loginStepdefinition {
     public void userClickOnLoginButton() {
         loginTester.click();
     }
+
+    @Then("user validate the page-title {string}")
+    public void userValidateThePagetitle(String title) {
+        loginTester.pageValidate(title);
+    }
+
 }

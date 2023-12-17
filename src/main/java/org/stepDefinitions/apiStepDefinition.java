@@ -10,7 +10,7 @@ import org.tester.ApiTester;
 
 public class apiStepDefinition {
     ApiTester apiTester = new ApiTester();
-    private static Scenario scenario;
+    public static Scenario scenario;
     public apiStepDefinition() {
         ApiTester.testRunnerLogger = apiStepDefinition::cukelogger;
     }
@@ -42,5 +42,25 @@ public class apiStepDefinition {
     @Then("User Delete the Order detail with below data")
     public void userDeleteTheOrderDetailWithBelowData(DataTable dataTable) {
         apiTester.userDeleteTheOrder(dataTable.asMaps().get(0));
+    }
+
+    @Given("User Create the book request body using below data")
+    public void userCreateTheBookRequestBodyUsingBelowData(DataTable datatable) {
+        apiTester.userCreateTheBookRequestBodyUsingBelowData(datatable.asMaps().get(0));
+    }
+
+    @And("User validate the Book creation detail with below data")
+    public void userValidateTheBookCreationDetailWithBelowData(DataTable dataTable) {
+        apiTester.userValidateTheBookCreationDetailWithBelowData(dataTable.asMaps().get(0));
+    }
+
+    @Then("user update the Book with below details")
+    public void userUpdateTheBookWithBelowDetails(DataTable dataTable) {
+        apiTester.userUpdateTheBookWithBelowDetails(dataTable.asMaps().get(0));
+    }
+
+    @Then("User {string} the book using {string}")
+    public void userGetTheBookUsing(String method,String bookId) {
+        apiTester.userGetTheBook(bookId,method);
     }
 }

@@ -1,5 +1,6 @@
 package org.tester;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,6 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import org.testng.Assert;
 
 import java.util.function.Consumer;
 
@@ -78,6 +78,16 @@ public class LoginTester extends BaseTester {
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("open broswer method failed");
+        }
+    }
+
+    public void pageValidate(String title) {
+        try{
+            log2TestRunner("PageTitle Expect: "+title+" Actual: "+driver.getTitle());
+            Assert.assertEquals("PAge title mismatch",title,driver.getTitle());
+        }catch (Exception e){
+            e.printStackTrace();
+            Assert.fail();
         }
     }
 }
