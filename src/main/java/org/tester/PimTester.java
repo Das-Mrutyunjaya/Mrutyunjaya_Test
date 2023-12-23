@@ -1,6 +1,7 @@
 package org.tester;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
@@ -134,7 +135,9 @@ public class PimTester extends BaseTester {
 
     public void userClickOnCheckboxAndTrashButton() {
         try {
-
+            driver.findElement(By.id("impressiveRadio")).click();
+           String xyz=  driver.findElement(By.cssSelector("[class='mt-3']")).getText();
+           Assert.assertEquals("Validation mismatch","You have selected",xyz);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("user Click On Checkbox And Trash Button method failed\n\t\t\t" + e.getMessage());

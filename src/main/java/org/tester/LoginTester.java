@@ -51,7 +51,7 @@ public class LoginTester extends BaseTester {
 
     public void openbrowser(String browsername) {
         try {
-
+            String headless=getValueFromEnvParams("cucumber/headless");
             switch (browsername) {
                 case "firefox":
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -62,13 +62,13 @@ public class LoginTester extends BaseTester {
                 case "edge":
                     EdgeDriverService edge_service = new EdgeDriverService.Builder().withSilent(true).build();
                     EdgeOptions edgeOptions = new EdgeOptions();
-                    edgeOptions.addArguments("start-maximized", "InPrivate", "version", "log-level=3");
+                    edgeOptions.addArguments("start-maximized", "InPrivate", "version", "log-level=3",headless);
                     driver = new EdgeDriver(edge_service, edgeOptions);
                     break;
                 default:
                     ChromeDriverService service = new ChromeDriverService.Builder().withSilent(true).build();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("start-maximized", "incognito", "version", "log-level=3");
+                    options.addArguments("start-maximized", "incognito", "version", "log-level=3", headless);
                     driver = new ChromeDriver(service, options);
                     break;
             }
