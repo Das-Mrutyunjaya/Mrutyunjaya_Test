@@ -26,7 +26,7 @@ jobs:
           server_port: 587
           Secure: false
           username: 'jujuaditya037@gmail.com'
-          password: 'Panda@030'
+          password: 'XXXXXXX'
           subject: HumbleBeast Manual Execution Summary for Docker
           to: pmrutyunjaya.das@bakerhughes.com
           from: HumbleBeast-Test-Alert <jujuaditya037@gmail.com>
