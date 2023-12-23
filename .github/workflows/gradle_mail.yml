@@ -14,16 +14,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-        with:
-          arguments: build
+      # - name: Build with Gradle
+      #   uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      #   with:
+      #     arguments: build
       - name: Send mail Report
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 465
+          server_port: 587
           Secure: false
           username: ${{secrets.EMAIL_USERNAME}}
           password: ${{secrets.EMAIL_PASSWORD}}
