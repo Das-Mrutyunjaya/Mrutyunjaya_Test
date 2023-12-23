@@ -56,11 +56,11 @@ jobs:
           sed -i -e '/Build Version:/r cucumber-reports/temp_file.html' cucumber-reports/email.html
           sed -i 's/0000/${{ github.run_id }}/g' cucumber-reports/email.html
           echo "<br>Branch:<b>${{ github.ref_name }}</b>" > cucumber-reports/temp_file.html
-          sed -i -e '/suite: /r cucumberReports/temp_file.html' cucumber-reports/email.html
+          sed -i -e '/Suite: /r cucumberReports/temp_file.html' cucumber-reports/email.html
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CucumberReport-artifact
+          name: TestReport-artifact
           path: cucumber-reports/generated/html/cucumber-html-reports
 
       - uses: actions/upload-artifact@v4
