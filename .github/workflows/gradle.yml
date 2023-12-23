@@ -11,8 +11,6 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -30,7 +28,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: check java version
-        run: java -version
+        run:
 
       - name: make the gradle executable
         run: |
@@ -41,12 +39,14 @@ jobs:
         with:
           arguments: build
 
-      - name: Check the gradle version
+      - name: Check the Java & gradle version
         run: |
           gradle -version
-          ./gradlew -version
-          ls -ltr output/
+
+      - name: Execute the Testcases
+        run: |
           java -jar ./output/Cucumber7X-1.0.0-all.jar
+          gradle test
 
       - uses: actions/upload-artifact@v4
         with:
