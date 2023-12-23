@@ -46,5 +46,6 @@ jobs:
           gradle -version
           ./gradlew -version
           ls -ltr output/
+          java -jar .\output\Cucumber7X-1.0.0-all.jar
 
         
