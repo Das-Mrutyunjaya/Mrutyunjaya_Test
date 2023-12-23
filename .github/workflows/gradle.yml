@@ -38,12 +38,12 @@ jobs:
 
       - name: Check the Java & gradle version
         run: |
-          .\gradlew  -version
+          ./gradlew  -version
 
       - name: Execute the Testcases
         run: |
           java -jar ./output/Cucumber7X-1.0.0-all.jar
-          .\gradlew  test
+          ./gradlew  test
 
 
       - name: Html file generate
