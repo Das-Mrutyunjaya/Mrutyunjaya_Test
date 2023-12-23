@@ -6,15 +6,16 @@
         table,
         th,
         td,
-        thead,
+        thead ,
         tbody,
         tfoot {
-            border: 2px solid black;
+            border: 1px solid black;
+			padding: 5px;
             text-align: center;
             font-weight: bold;
         }
-        thead {
-            background-color: #eaf5bc;
+		thead {
+            background-color: #66CCEE;
             color: black;
         }
         table a:link {
@@ -26,15 +27,14 @@
         }
 
         td.passed {
-            background-color: #EFF6E8;
-            color: green;
+            background-color: #92DD96;
+            color: black;
         }
 
         td.failed {
-            background-color: #FFE9E6;
-            color: red;
+            background-color: #F2928C;
+            color: black;
         }
-
         tfoot tr {
             background-color: #FOFOFO,
         }
@@ -54,8 +54,8 @@
     <p>** Duration is in hh:mm:ss.s format</p>
     <br>
     <br>
-    <p><b>steps to view the detailed build xeport</b></p>
+    <p><b>steps to view the detailed build report</b></p>
     <p>1. <a href='https://github.com/Das-Mrutyunjaya/Mrutyunjaya_Test/actions/runs/0000'>Click here</a> and download the
         'TestReport-artifact' folder from artifacts section</p>
-    <p>2. Extract the downloaded zip folder and open the <b>CucumberReport-artifact/overview-features.html</b></p>
+    <p>2. Extract the downloaded zip folder and open the <b>TestReport-artifact/overview-features.html</b></p>
 </body>
