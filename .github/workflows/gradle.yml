@@ -43,8 +43,10 @@ jobs:
       - name: Execute the Testcases
         run: |
           java -jar ./output/Cucumber7X-1.0.0-all.jar
-          ./gradlew  test
 
+      - name: Generate the TestExecution Report
+        if: always ()
+        run: ./gradlew  test
 
       - name: Html file generate
         if: always ()
