@@ -86,6 +86,5 @@ jobs:
           from: Practice-Test-Alert <jujuaditya037@gmail.com>
           html_body: file://cucumber-reports/email.html
           ignore_cert: true
-          content_type : text/html
           priority: 'normal'
 
