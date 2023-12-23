@@ -9,8 +9,8 @@ name: Java CI with Gradle
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
 
 permissions:
   contents: read
