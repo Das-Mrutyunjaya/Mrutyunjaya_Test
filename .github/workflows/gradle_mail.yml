@@ -28,7 +28,7 @@ jobs:
           username: ${{secrets.EMAIL_USERNAME}}
           password: ${{secrets.EMAIL_PASSWORD}}
           subject: HumbleBeast Manual Execution Summary for Docker
-          to: pmrutyunjaya.das@bakerhughes.com
+          to: p.mrutyunjaya.das@gmail.com
           from: HumbleBeast-Test-Alert <jujuaditya037@gmail.com>
           html_body: file://cucumber-reports/email.html
           ignore_cert: true
