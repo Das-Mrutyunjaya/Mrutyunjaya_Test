@@ -22,11 +22,11 @@ jobs:
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
+          server_address: 'smtp.gmail.com'
           server_port: 587
           Secure: false
-          username: jujuaditya037@gmail.com
-          password: Panda@030
+          username: 'jujuaditya037@gmail.com'
+          password: 'Panda@030'
           subject: HumbleBeast Manual Execution Summary for Docker
           to: pmrutyunjaya.das@bakerhughes.com
           from: HumbleBeast-Test-Alert <jujuaditya037@gmail.com>
