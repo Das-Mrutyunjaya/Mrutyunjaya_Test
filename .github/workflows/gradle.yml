@@ -9,8 +9,8 @@ name: Java CI with Gradle
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
 
 permissions:
   contents: read
@@ -70,4 +70,20 @@ jobs:
         with:
           name: CucumberReport-Summary-email
           path: cucumber-reports/email.html
+      - name: Send mail Report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          Secure: false
+          username: ${{secrets.EMAIL_USERNAME}}
+          password: ${{secrets.EMAIL_PASSWORD}}
+          subject: Practice CICD Manual Execution Summary for Test Excution
+          to: jujuaditya037@gmail.com
+          from: Practice-Test-Alert <jujuaditya037@gmail.com>
+          html_body: file://cucumber-reports/email.html
+          ignore_cert: true
+          convert_ markdown: true
+          priority: 'normal'
 
