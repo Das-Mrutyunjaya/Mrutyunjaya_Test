@@ -59,11 +59,13 @@ jobs:
           sed -i -e '/Suite: /r cucumberReports/temp_file.html' cucumber-reports/email.html
 
       - uses: actions/upload-artifact@v4
+        if: always ()
         with:
           name: TestReport-artifact
           path: cucumber-reports/generated/html/cucumber-html-reports
 
       - uses: actions/upload-artifact@v4
+        if: always ()
         with:
           name: CucumberReport-Summary-email
           path: cucumber-reports/email.html
