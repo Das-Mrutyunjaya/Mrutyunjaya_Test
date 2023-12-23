@@ -1,6 +1,6 @@
 Feature: Login to OrangeHRM Practice website
 
-  @practice1
+  @practice
   Scenario Outline: User login to to the OrangeHRM application
     Given User open the "<browser>" browser
     Then User put his "<username>" and "<password>"

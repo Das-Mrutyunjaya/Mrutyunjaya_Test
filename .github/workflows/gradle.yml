@@ -48,4 +48,8 @@ jobs:
           ls -ltr output/
           java -jar .\output\Cucumber7X-1.0.0-all.jar
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CucumberReport-artifact
+          path: cucumber-reports/generated/html/cucumber-html-reports
         
