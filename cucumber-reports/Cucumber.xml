@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="30.708" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Login to OrangeHRM Practice website" name="User Adding Employee to the database" time="30.49">
+<testsuite name="Cucumber" time="57.797" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login to OrangeHRM Practice website" name="User Adding Employee to the database" time="57.554">
 <system-out><![CDATA[
 Given User open the "chrome" browser........................................passed
 Then User put his "Admin" and "admin123"....................................passed
