@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table,
+        th,
+        td,
+        thead,
+        tbody,
+        tfoot {
+            border: 2px solid black;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table a:link {
+            cursor: default;
+            pointer-events: none;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        td.passed {
+            background-color: #EFF6E8;
+            color: green;
+        }
+
+        td.failed {
+            background-color: #FFE9E6;
+            color: red;
+        }
+
+        tfoot tr {
+            background-color: #FOFOFO,
+        }
+    </style>
+</head>
+
+<body>
+    <p>Test execution has been completed</p>
+    <br>Environment:<b> @env </b>
+    <br>Suite: <b> @suite </b>
+    <br>Build Version: <b> @version </b>
+</body>
+
+</html>
+
+<body>
+    <p>** Duration is in hh:mm:ss.s format</p>
+    <br>
+    <br>
+    <p><b>steps to view the detailed build xeport</b></p>
+    <p>1. <a href='https://github.com/avitas-bh/hb-test-automation/actions/runs/0000'>Click here</a> and download the
+        'TestReport' folder from artifacts section</p>
+    <p>2. Extract the downloaded zip folder and open the <b>CucumberReport-artifact/overview-features.html</b></p>
+</body>

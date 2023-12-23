@@ -49,4 +49,17 @@ jobs:
         with:
           name: CucumberReport-artifact
           path: cucumber-reports/generated/html/cucumber-html-reports
-        
+
+      - name: Html file generate
+        if: always ()
+        run: |
+          startline=$(sed -n '/<table/=' cucumber-reports/generated/html/cucumber-html-reports/overview-features.html | tail -1)
+          endline=$(sed -n '/table>/=' cucumber-reports/generated/html/cucumber-html-reports/overview-features.html |tail -1)
+          echo $startline, $endline
+          sed -n "$startline,$endline p" cucumber-reports/generated/html/cucumber-html-reports/overview-features.html > cucumber-reports/temp_file.html
+          sed -i -e '/Build Version:/r cucumber-reports/temp_file.html' cucumber-reports/email.html
+          sed -i 's/00000/$(( github.run_id ))/g' cucumberReports/email.html
+          echo "<br>Branch:<b>$(( github.ref_name ))</b>" > cucumberReports/temp_file.html
+          sed -i -e '/suite: /r cucumberReports/temp_file.html' cucumberReports/email.html
+
+                
