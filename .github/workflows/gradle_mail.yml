@@ -32,5 +32,5 @@ jobs:
           from: HumbleBeast-Test-Alert <jujuaditya037@gmail.com>
           html_body: file://cucumber-reports/email.html
           ignore_cert: true
-          convert_ markdown: true
+          convert_markdown: true
           priority: 'normal'
