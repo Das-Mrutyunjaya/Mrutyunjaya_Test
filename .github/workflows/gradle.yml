@@ -54,8 +54,8 @@ jobs:
           echo $startline, $endline
           sed -n "$startline,$endline p" cucumber-reports/generated/html/cucumber-html-reports/overview-features.html > cucumber-reports/temp_file.html
           sed -i -e '/Build Version:/r cucumber-reports/temp_file.html' cucumber-reports/email.html
-          sed -i 's/00000/$(( github.run_id ))/g' cucumber-reports/email.html
-          echo "<br>Branch:<b>$(( github.ref_name ))</b>" > cucumber-reports/temp_file.html
+          sed -i 's/00000/${{ github.run_id }}/g' cucumber-reports/email.html
+          echo "<br>Branch:<b>${{ github.ref_name }}</b>" > cucumber-reports/temp_file.html
           sed -i -e '/suite: /r cucumberReports/temp_file.html' cucumber-reports/email.html
 
       - uses: actions/upload-artifact@v4
