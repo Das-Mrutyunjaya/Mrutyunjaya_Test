@@ -1,6 +1,6 @@
 Feature: Book & PetStore CRUD operation Practice API
 
-  @practice
+  @practice1
   Scenario Outline: User CRUD Operation on Books
     Given User Create the book request body using below data
       | id   | title              | description | pageCount | excerpt                      | publishDate          |
@@ -19,7 +19,7 @@ Feature: Book & PetStore CRUD operation Practice API
       | 5  | 7      |
 
 
-  @practice
+  @practice1
   Scenario Outline: User Order pets and validate the order details from a petStore
     Given User Delete the Order detail with below data
       | id   |

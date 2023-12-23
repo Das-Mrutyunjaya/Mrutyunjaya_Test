@@ -51,24 +51,38 @@ public class LoginTester extends BaseTester {
 
     public void openbrowser(String browsername) {
         try {
-            String headless=getValueFromEnvParams("cucumber/headless");
+            String headless = getValueFromEnvParams("cucumber/headless");
+            String screenResolution = getValueFromEnvParams("cucumber/resolution");
             switch (browsername) {
                 case "firefox":
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("-private");
+                    if (headless.equalsIgnoreCase("true")) {
+                        firefoxOptions.addArguments("--headless", screenResolution);
+                    }
                     driver = new FirefoxDriver(firefoxOptions);
-                    driver.manage().window().maximize();
+//                    driver.manage().window().maximize();
                     break;
                 case "edge":
                     EdgeDriverService edge_service = new EdgeDriverService.Builder().withSilent(true).build();
                     EdgeOptions edgeOptions = new EdgeOptions();
-                    edgeOptions.addArguments("start-maximized", "InPrivate", "version", "log-level=3",headless);
+                    edgeOptions.addArguments("InPrivate", "version", "log-level=3");
+                    if (headless.equalsIgnoreCase("true")) {
+                        edgeOptions.addArguments("--headless", screenResolution);
+                    } else {
+                        edgeOptions.addArguments("start-maximized");
+                    }
                     driver = new EdgeDriver(edge_service, edgeOptions);
                     break;
                 default:
                     ChromeDriverService service = new ChromeDriverService.Builder().withSilent(true).build();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("start-maximized", "incognito", "version", "log-level=3", headless);
+                    options.addArguments("incognito", "version", "log-level=3");
+                    if (headless.equalsIgnoreCase("true")) {
+                        options.addArguments("--headless", screenResolution);
+                    } else {
+                        options.addArguments("start-maximized");
+                    }
                     driver = new ChromeDriver(service, options);
                     break;
             }

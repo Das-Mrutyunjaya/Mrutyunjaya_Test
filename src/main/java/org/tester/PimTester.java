@@ -59,7 +59,7 @@ public class PimTester extends BaseTester {
                 } else if (i == 4) {
                     employeeDetail.sendKeys(datalist.get("Employee Id"));
                 } else if (i == 5) {
-                    employeeDetail.sendKeys(datalist.get("Username"));
+                    employeeDetail.sendKeys(datalist.get("Username") + Math.floor(Math.random() * 1000));
                 } else if (i == 6) {
                     employeeDetail.sendKeys(datalist.get("Password"));
                 } else if (i == 7) {
@@ -118,6 +118,7 @@ public class PimTester extends BaseTester {
 
     public void userFindsTheSearchedEmployeeInRecordTable(Map<String, String> datalist) {
         try {
+            Thread.sleep(2000);
             List<WebElement> tableRows = getElements(driver, page, "SearchTableRows");
             for (WebElement tableRow : tableRows) {
                 List<WebElement> columns = getElements(tableRow, page, "SearchTableColumn");
@@ -136,8 +137,8 @@ public class PimTester extends BaseTester {
     public void userClickOnCheckboxAndTrashButton() {
         try {
             driver.findElement(By.id("impressiveRadio")).click();
-           String xyz=  driver.findElement(By.cssSelector("[class='mt-3']")).getText();
-           Assert.assertEquals("Validation mismatch","You have selected",xyz);
+            String xyz = driver.findElement(By.cssSelector("[class='mt-3']")).getText();
+            Assert.assertEquals("Validation mismatch", "You have selected", xyz);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("user Click On Checkbox And Trash Button method failed\n\t\t\t" + e.getMessage());
