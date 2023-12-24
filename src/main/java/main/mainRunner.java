@@ -31,6 +31,8 @@ public class mainRunner {
             paramlist.addAll(List.of("-p", getValueFromEnvParams("cucumber/json")));
             paramlist.addAll(List.of("-p", getValueFromEnvParams("cucumber/html")));
             paramlist.addAll(List.of("-g", getValueFromEnvParams("cucumber/steps")));
+            paramlist.addAll(List.of("-p", "pretty"));
+            paramlist.addAll(List.of("-p", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"));
 
         } catch (Exception e) {
             e.getStackTrace();

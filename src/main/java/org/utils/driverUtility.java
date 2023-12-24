@@ -14,7 +14,7 @@ public class driverUtility {
 
     public static WebElement getElement(WebDriver driver, String page, String locatorName) {
 
-        String path = "src/main/resources/object_repository/" + page + ".json";
+        String path = "object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
         String Locator = (String) locator_map.get("Locator");
@@ -23,7 +23,7 @@ public class driverUtility {
 
     public static List<WebElement> getElements(WebDriver driver, String page, String locatorName) {
 
-        String path = "src/main/resources/object_repository/" + page + ".json";
+        String path = "object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
         String Locator = (String) locator_map.get("Locator");
@@ -32,7 +32,7 @@ public class driverUtility {
 
     public static WebElement getElement(WebElement webelement, String page, String locatorName) {
 
-        String path = "src/main/resources/object_repository/" + page + ".json";
+        String path = "object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
         String Locator = (String) locator_map.get("Locator");
@@ -41,7 +41,7 @@ public class driverUtility {
 
     public static List<WebElement> getElements(WebElement webelement, String page, String locatorName) {
 
-        String path = "src/main/resources/object_repository/" + page + ".json";
+        String path = "object_repository/" + page + ".json";
         Map locator_map = jsonreader.elementLocatorReader(path, locatorName);
         String Method = (String) locator_map.get("Method");
         String Locator = (String) locator_map.get("Locator");

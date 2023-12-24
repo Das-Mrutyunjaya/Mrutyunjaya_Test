@@ -22,7 +22,6 @@ public class cucuHooks extends BaseTester {
 
     @AfterStep
     public void afterStep(Scenario scenario) {
-        System.out.println("<=========================== End of the Step of : " + scenario.getLine() + " ===========================>");
         try {
             if (driver != null) {
                 final byte[] source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -37,6 +36,7 @@ public class cucuHooks extends BaseTester {
 
     @Before
     public void beforeScenario(Scenario scenario) {
+        System.out.println(scenario.getName() + " Thread no is ----> : " + Thread.currentThread().getId());
         System.out.println("<=========================== start of the scenario: " + scenario.getName() + " ===========================>");
     }
 

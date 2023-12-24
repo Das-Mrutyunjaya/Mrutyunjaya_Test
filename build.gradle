@@ -24,28 +24,36 @@ repositories {
 
 dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.12.1'
-    implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
-    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.14.0'
-    implementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
-    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '7.14.0'
+
+    implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.15.0'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.15.0'
+    implementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.15.0'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '7.15.0'
+
     implementation 'io.github.bonigarcia:webdrivermanager:5.5.0'
-    implementation group: 'net.masterthought', name: 'cucumber-reporting' , version: '5.7.5'
+    implementation group: 'net.masterthought', name: 'cucumber-reporting', version: '5.7.5'
 
     implementation 'io.rest-assured:rest-assured:5.3.0'
     implementation 'io.rest-assured:json-path:5.3.0'
     implementation 'io.rest-assured:json-schema-validator:5.3.0'
 
+    implementation 'io.qameta.allure:allure-cucumber7-jvm:2.25.0'
 
-    testImplementation 'io.cucumber:cucumber-junit:7.14.0'
-    implementation 'io.cucumber:cucumber-core:7.14.0'
-    implementation 'io.cucumber:cucumber-testng:7.14.0'
-    implementation 'io.cucumber:cucumber-java:7.14.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.15.0'
+    implementation 'io.cucumber:cucumber-core:7.15.0'
+    implementation 'io.cucumber:cucumber-testng:7.15.0'
+    implementation 'io.cucumber:cucumber-java:7.15.0'
     implementation 'io.cucumber:gherkin:27.0.0'
-
+    implementation 'io.cucumber:cucumber-picocontainer:7.15.0'
 }
+
 
 test {
     useJUnitPlatform()
+    systemProperty 'cucumber.execution.parallel.enabled', 'true'
+    systemProperty 'cucumber.execution.parallel.config.strategy', 'dynamic'
+    maxParallelForks = 4
+    forkEvery = 0
 }
 
 application {
